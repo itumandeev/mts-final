@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="init_data_product_code" author="itumandeev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="storage"></tableExists>
+        </preConditions>
+        <insert tableName="storage">
+            <column name="id" value="1"></column>
+            <column name="product_code" value="10001"></column>
+            <column name="quantity" value="15"></column>
+        </insert>
+        <insert tableName="storage">
+            <column name="id" value="2"></column>
+            <column name="product_code" value="10002"></column>
+            <column name="quantity" value="7"></column>
+        </insert>
+        <insert tableName="storage">
+            <column name="id" value="3"></column>
+            <column name="product_code" value="10003"></column>
+            <column name="quantity" value="100"></column>
+        </insert>
+        <insert tableName="storage">
+            <column name="id" value="4"></column>
+            <column name="product_code" value="10004"></column>
+            <column name="quantity" value="101"></column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

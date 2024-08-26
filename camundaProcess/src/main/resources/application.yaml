@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: camundaProcess
+  datasource:
+    url: jdbc:postgresql://147.45.151.57:5432/itumandeev?currentSchema=camunda
+    username: itumandeev
+    password: itumandeev
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      default_schema: camunda
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master-process.xml
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+    deployment-resource-pattern: classpath:/bpmn/final.bpmn
+    application:
+      delete-upon-undeploy: false
+      scan-for-process-definitions: false
+      deploy-changed-only: true
+      resume-previous-versions: true
+      resume-previous-by: a value
+    job-execution:
+      enabled: true
+    metrics:
+      enabled: false
+      db-reporter-activate: false
+server:
+  port: 8082
+logging:
+  level:
+    root: INFO
+    org:
+      apache:
+        kafka: WARN
+
+camunda.bpm.auto-deployment-enabled: false

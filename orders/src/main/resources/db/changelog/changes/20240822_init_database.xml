@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="init_database" author="itumandeev">
+        <createTable tableName="orders">
+            <column name="id" type="varchar(50)">
+                <constraints nullable="false" primaryKey="true"></constraints>
+            </column>
+            <column name="created" type="date" remarks="Дата создания">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_cd" type="varchar(30)" remarks="Статус заказа">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_code" type="varchar(20)" remarks="Код товара">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="int" remarks="Количество товара">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="varchar(30)" remarks="Id клиента">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_phone" type="varchar(20)" remarks="Телефон клиента">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)" remarks="Адрес клиента">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="storage">
+            <column name="id" type="varchar(30)">
+                <constraints nullable="false" primaryKey="true"></constraints>
+            </column>
+            <column name="product_code" type="varchar(20)" remarks="Код товара">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="int" remarks="Количество">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

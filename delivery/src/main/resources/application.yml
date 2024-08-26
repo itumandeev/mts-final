@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: delivery
+  datasource:
+    url: jdbc:postgresql://147.45.151.57:5432/itumandeev?currentSchema=delivery
+    username: itumandeev
+    password: itumandeev
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      default_schema: delivery
+  liquibase:
+      enabled: true
+      change-log: classpath:db/changelog/changelog-master-delivery.xml
+server:
+  port: 8084
+logging:
+  level:
+    root: INFO
+    org:
+      apache:
+        kafka: WARN

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="init_database" author="itumandeev">
+        <createTable tableName="delivery_opty" remarks="Таблица с данными о доставке заказов">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="created" type="date" remarks="Дата заказа">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="varchar(50)" remarks="Уникальный идентификатор заказа">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(30)" remarks="Статус заказа">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="varchar(20)" remarks="Номер телефона клиента">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)" remarks="Адрес клиента">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

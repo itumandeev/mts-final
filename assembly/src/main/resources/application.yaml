@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: assembly
+  datasource:
+    url: jdbc:postgresql://147.45.151.57:5432/itumandeev?currentSchema=assembly
+    username: itumandeev
+    password: itumandeev
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      default_schema: assembly
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master-assembly.xml
+server:
+  port: 8083
+logging:
+  level:
+    root: INFO
+    org:
+      apache:
+        kafka: WARN
